@@ -50,6 +50,7 @@ public class CheckInService {
         }
         if (keyId % roomId == 0) {
             log.info("Key {} opens door {}", keyId, roomId);
+            keyStateRepository.enterRoom(keyId, roomId);
             return OPENED_DOOR;
         }
         log.info("Key {} can not open door {}", keyId, roomId);
@@ -63,6 +64,7 @@ public class CheckInService {
         }
         if (currentRoomId == roomId) {
             log.info("Key {} opens the door {}", keyId, roomId);
+            keyStateRepository.leaveRoom(keyId);
             return OPENED_DOOR;
         }
         log.info("Key {} is in another room", keyId);
