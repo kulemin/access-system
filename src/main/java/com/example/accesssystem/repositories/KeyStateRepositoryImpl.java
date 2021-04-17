@@ -1,8 +1,11 @@
 package com.example.accesssystem.repositories;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class KeyStateRepositoryImpl implements KeyStateRepository{
     private Map <Integer, Integer> KeyRoom = new HashMap<>();
     @Override
